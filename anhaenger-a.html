@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pferdeanhänger Modell A | Hängerhandel Mustermann</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css"
+  />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navigation">
+    <div class="container nav-content">
+      <h1 class="logo">Hängerhandel <span>Mustermann</span></h1>
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="angebote.html" class="active">Angebote</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hauptinhalt -->
+  <main class="container" style="padding-top: 6rem;">
+    <h2>Pferdeanhänger Modell A</h2>
+
+    <!-- Bildvorschau mit Buttons -->
+    <section class="bilder-vorschau">
+      <div class="bilder-controls">
+        <button id="prevBtn">←</button>
+
+        <div id="lightgallery">
+          <a href="#">
+            <img id="preview-img" src="bilder/a1.jpg" alt="Modell A Vorschau" />
+          </a>
+        </div>
+
+        <button id="nextBtn">→</button>
+      </div>
+      <p class="bildanzahl">📸 3 Fotos verfügbar</p>
+    </section>
+
+    <!-- Angebotsdetails -->
+    <section class="angebot-details">
+      <h3>Beschreibung</h3>
+      <p>Modell A ist ein hochwertiger Zweipferdeanhänger mit TÜV neu...</p>
+
+      <h3>Technische Daten</h3>
+      <ul class="daten-liste">
+        <li><strong>Baujahr:</strong> 2021</li>
+        <li><strong>Material:</strong> Aluminium</li>
+        <li><strong>Maße innen:</strong> 315 × 155 × 210 cm</li>
+        <li><strong>Leergewicht:</strong> ca. 850 kg</li>
+        <li><strong>Gesamtgewicht:</strong> 2000 kg</li>
+        <li><strong>TÜV:</strong> gültig bis 06/2026</li>
+      </ul>
+
+      <h3>Ausstattung</h3>
+      <ul class="daten-liste">
+        <li>Trennwand mit Polsterung</li>
+        <li>Aluboden mit Gummibelag</li>
+        <li>Antischlingerkupplung</li>
+        <li>LED-Beleuchtung</li>
+      </ul>
+
+      <div class="btn-group" style="margin-top: 1.5rem;">
+        <a href="angebote.html" class="btn secondary-btn">← Zurück</a>
+        <a href="kontakt.html" class="btn">Kontakt aufnehmen</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-section">
+        <h3>Hängerhandel Mustermann</h3>
+        <p>Pferdeanhänger aus Crailsheim</p>
+      </div>
+      <div class="footer-section">
+        <h3>Kontakt</h3>
+        <p>📞 07951 / 123456<br />✉️ kontakt@haenger-mustermann.de</p>
+      </div>
+      <div class="footer-section">
+        <h3>Adresse</h3>
+        <p>Mustermannstraße 1<br />74564 Crailsheim</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 · Impressum · Datenschutz</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script>
+  <script>
+    const images = [
+      { src: "bilder/a1.jpg", caption: "Außenansicht" },
+      { src: "bilder/a2.jpg", caption: "Seitenansicht" },
+      { src: "bilder/a3.jpg", caption: "Innenansicht" },
+    ];
+
+    let currentIndex = 0;
+    const previewImg = document.getElementById("preview-img");
+
+    // Pfeilbuttons
+    document.getElementById("prevBtn").addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      previewImg.src = images[currentIndex].src;
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      previewImg.src = images[currentIndex].src;
+    });
+
+    // Slideshow bei Klick
+    const galleryElement = document.getElementById("lightgallery");
+    const lgInstance = lightGallery(galleryElement, {
+      dynamic: true,
+      dynamicEl: images.map(img => ({
+        src: img.src,
+        thumb: img.src,
+        subHtml: `<h4>${img.caption}</h4>`,
+      })),
+      plugins: [lgZoom, lgThumbnail],
+      thumbnail: true,
+      zoom: true,
+      actualSize: true,
+      download: false,
+    });
+
+    galleryElement.addEventListener("click", () => {
+      lgInstance.openGallery(currentIndex);
+    });
+  </script>
+</body>
+</html>

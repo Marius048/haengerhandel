@@ -1,0 +1,389 @@
+/* Basis */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #fff;
+  color: #2e3b4e;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Navigation */
+.navigation {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 1rem 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.logo span {
+  color: #ff6600;
+}
+
+.navigation ul {
+  display: flex;
+  list-style: none;
+}
+
+.navigation li {
+  margin: 0 1rem;
+}
+
+.navigation a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.navigation a:hover {
+  background-color: #ff6600;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url("bilder/anhänger.jpg") center center / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.hero-text h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  background: #ff6600;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #e65c00;
+}
+
+/* Footer */
+footer {
+  background-color: #000000;
+  color: white;
+  padding: 4rem 0 2rem;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.footer-section {
+  min-width: 220px;
+}
+
+.footer-section h3 {
+  margin-bottom: 0.5rem;
+  color: #ff6600;
+  font-size: 1.1rem;
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+/* Angebote */
+.angebote-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.angebot-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  background: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.angebot-card:nth-child(1) { animation-delay: 0s; }
+.angebot-card:nth-child(2) { animation-delay: 0.2s; }
+.angebot-card:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.angebot-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.angebot-card h3 {
+  color: #2e3b4e;
+  margin-bottom: 0.5rem;
+}
+
+.angebot-card .preis {
+  font-size: 1.25rem;
+  color: #ff6600;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+/* Button-Gruppe */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: #2e3b4e;
+  border: 2px solid #ff6600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.secondary-btn:hover {
+  background: #ff6600;
+  color: white;
+}
+
+/* Slider */
+.slider {
+  position: relative;
+  max-width: 700px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.slider img {
+  display: none;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.slider img.active {
+  display: block;
+}
+
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.slider-controls button {
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+/* Detailbereich */
+.angebot-details {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.angebot-details h3 {
+  margin-top: 1.5rem;
+  color: #2e3b4e;
+}
+
+/* Sauber ausgerichtete technische Listen */
+.daten-liste {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.daten-liste li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.daten-liste li::before {
+  content: "✔️";
+  flex-shrink: 0;
+  color: #ff6600;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+#lightgallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+#lightgallery img {
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  margin: 4rem auto 2rem auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+#lightgallery img:hover {
+  transform: scale(1.02);
+}
+
+.bilder-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 4rem 0 1rem 0;
+}
+
+#lightgallery img {
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.bildanzahl {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.bilder-controls button {
+  font-size: 1.5rem;
+  background-color: #eee;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.bilder-controls button:hover {
+  background-color: #ddd;
+}
+
+.service-block {
+  margin-bottom: 2.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.service-block h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.service-block p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+
