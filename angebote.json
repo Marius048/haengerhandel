@@ -1,1 +1,26 @@
+{
+  "entries": [
+    {
+      "titel": "Pferdeanhänger Modell A",
+      "bild": "bilder/pferdeanhänger1.jpg",
+      "details": "✔️ Baujahr: 2021\n✔️ TÜV neu\n✔️ Aluminium-Boden\n✔️ 2 Pferde",
+      "preis": "€4.990,-",
+      "mehr": "anhaenger-a.html"
+    },
+    {
+      "titel": "Pferdeanhänger Modell B",
+      "bild": "bilder/pferdeanhänger2.jpg",
+      "details": "✔️ Baujahr: 2020\n✔️ Sattelkammer\n✔️ Plane neu\n✔️ 2 Pferde",
+      "preis": "€5.490,-",
+      "mehr": ""
+    },
+    {
+      "titel": "Pferdeanhänger Modell C",
+      "bild": "bilder/pferdeanhänger3.jpg",
+      "details": "✔️ Baujahr: 2019\n✔️ Holz-Alu-Konstruktion\n✔️ Frisch versiegelt\n✔️ 1–2 Pferde",
+      "preis": "€3.990,-",
+      "mehr": ""
+    }
+  ]
+}
 
