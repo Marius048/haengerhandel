@@ -4,16 +4,21 @@ fetch("angebote.json")
     const container = document.getElementById("angebote");
     data.entries.forEach((angebot) => {
       const el = document.createElement("div");
+      el.className = "angebot-card";
       el.innerHTML = `
-        <div class="angebot">
-          <h3>${angebot.titel}</h3>
-          <img src="${angebot.bild}" alt="${angebot.titel}" />
-          <p>${angebot.details}</p>
-          <p><strong>Preis:</strong> ${angebot.preis}</p>
-          ${angebot.mehr ? `<a href="${angebot.mehr}">Mehr erfahren</a>` : ""}
+        <img src="${angebot.bild}" alt="${angebot.titel}" />
+        <h3>${angebot.titel}</h3>
+        <p>${angebot.details.replace(/\n/g, "<br>")}</p>
+        <p class="preis">${angebot.preis}</p>
+        <div class="btn-group">
+          <a href="kontakt.html" class="btn">Jetzt anfragen</a>
+          ${
+            angebot.mehr
+              ? `<a href="${angebot.mehr}" class="btn secondary-btn">Mehr Infos</a>`
+              : ""
+          }
         </div>
       `;
       container.appendChild(el);
     });
   });
-
