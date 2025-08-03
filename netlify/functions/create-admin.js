@@ -5,7 +5,7 @@ exports.handler = async () => {
   const ADMIN_PASSWORD = "Test123";
 
   // Diesen Token brauchst du aus dem Netlify-Dashboard als „Personal Access Token“!
-  const NETLIFY_API_KEY = "nfp_JSuH3fKkd39nMw9kf7W1jADeAjyG677P6942";
+  const NETLIFY_API_KEY = "nfp_1nqB1k5sKAnPhvvgVp8bFG8LeiZXMt3ne3ec";
 
   const SITE_ID = "0a30388b-d165-47d4-9c03-27f5b5b6a728"; // Findest du unter Settings → Site Details
 
