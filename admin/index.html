@@ -5,29 +5,27 @@
   <title>Admin-Bereich</title>
 </head>
 <body>
-  <!-- Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
-
-  <!-- 🛡️ Netlify Identity Widget -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+ <!-- ZUERST: Identity Widget -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
       if (!user) {
         const tokenMatch = window.location.hash.match(/recovery_token=([^&]+)/);
         if (tokenMatch) {
-          // ⛑️ Wenn ein Token da ist, öffnet direkt den Recovery-Flow
           window.netlifyIdentity.open('login');
         } else {
-          // 🔐 Kein Token → Normales Login-Fenster
           window.netlifyIdentity.open();
         }
       }
     });
-
-    window.netlifyIdentity.init();
+    window.netlifyIdentity.init(); // MUSS außerhalb des Handlers stehen
   }
 </script>
+
+<!-- DANN: Netlify CMS -->
+<script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
+
 
 </body>
 </html>
