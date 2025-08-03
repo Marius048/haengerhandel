@@ -10,14 +10,24 @@
 
   <!-- 🛡️ Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.open(); // öffnet automatisch das Login/Signup-Fenster
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        const tokenMatch = window.location.hash.match(/recovery_token=([^&]+)/);
+        if (tokenMatch) {
+          // ⛑️ Wenn ein Token da ist, öffnet direkt den Recovery-Flow
+          window.netlifyIdentity.open('login');
+        } else {
+          // 🔐 Kein Token → Normales Login-Fenster
+          window.netlifyIdentity.open();
         }
-      });
-    }
-  </script>
+      }
+    });
+
+    window.netlifyIdentity.init();
+  }
+</script>
+
 </body>
 </html>
