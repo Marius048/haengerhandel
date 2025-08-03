@@ -1,8 +1,6 @@
 backend:
-  name: auth0
-  client_id: jJKgSgYnVE1KUM8n7P1bTQhS4KsUKgBr
-  domain: dev-cau83froo7jdms2y.us.auth0.com
-
+  name: git-gateway
+  branch: main
 
 media_folder: "bilder"
 public_folder: "/bilder"
