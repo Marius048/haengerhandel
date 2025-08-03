@@ -5,6 +5,19 @@
   <title>Admin-Bereich</title>
 </head>
 <body>
+  <!-- Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
+
+  <!-- 🛡️ Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.open(); // öffnet automatisch das Login/Signup-Fenster
+        }
+      });
+    }
+  </script>
 </body>
 </html>
