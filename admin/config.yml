@@ -24,3 +24,4 @@ collections:
               - { label: "Details", name: "details", widget: "text" }
               - { label: "Preis", name: "preis", widget: "string" }
               - { label: "Link", name: "mehr", widget: "string", required: false }
+redirect: /admin/
