@@ -5,27 +5,32 @@
   <title>Admin-Bereich</title>
 </head>
 <body>
- <!-- ZUERST: Identity Widget -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        const tokenMatch = window.location.hash.match(/recovery_token=([^&]+)/);
-        if (tokenMatch) {
-          window.netlifyIdentity.open('login');
-        } else {
-          window.netlifyIdentity.open();
-        }
+
+  <!-- 🛡️ Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof window.netlifyIdentity !== 'undefined') {
+        window.netlifyIdentity.init();
+
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            const tokenMatch = window.location.hash.match(/recovery_token=([^&]+)/);
+            if (tokenMatch) {
+              window.netlifyIdentity.open('login');
+            } else {
+              window.netlifyIdentity.open();
+            }
+          }
+        });
+      } else {
+        console.error("❌ Netlify Identity konnte nicht geladen werden.");
       }
     });
-    window.netlifyIdentity.init(); // MUSS außerhalb des Handlers stehen
-  }
-</script>
+  </script>
 
-<!-- DANN: Netlify CMS -->
-<script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
-
+  <!-- ✅ Netlify CMS -->
+  <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
 
 </body>
 </html>
